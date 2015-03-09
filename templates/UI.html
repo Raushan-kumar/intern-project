@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+  body {background-color:lightgray}
+  h1   {color:blue}
+  p    {color:green}
+table {
+    width: 100%;
+}
+th {
+    height: 50px;
+}
+
+</style>
+
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Field Name*</th>
+    <th>Type*</th>
+    <th>Multivalued*</th>
+    <th>OmitNorms*</th>
+  </tr>
+  <tr>
+    <form name="UI" action="/search_form/"  method = "POST">
+    {% csrf_token %}
+    <td>  <input  type="text" name="field_name" value="{{ field_name }}" placeholder="F name" maxlength="50" size="30" required></td>
+    <td>
+    <select name = "type" > 
+    <option value=" String ">String</option>
+    <option value=" Int ">Int</option>
+    <option value=" Float ">Float</option>
+    <option value=" Boolean ">Boolean</option>
+    </select>
+    </td>
+   <td><input type="radio" name="mul" value= 1 checked>Yes
+       <input type="radio" name="mul" value=0>No
+   </td>
+   <td><input type="radio" name="norm" value=1 checked>Yes
+       <input type="radio" name="norm" value=0>No
+   </td>
+ </tr>
+
+</table></br>
+  
+  <input type="submit" value="Save"  colspan="2"  style="width: 100px; float: right;" >   
+
+</body>
+</html>
